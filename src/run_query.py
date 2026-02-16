@@ -15,6 +15,16 @@ if not os.getenv("OPENAI_API_KEY"):
 # Define OpenAI client (lee OPENAI_API_KEY del entorno)
 client = openai.OpenAI()
 
+def load_prompt_template():
+    """Load the main prompt template from disk."""
+    prompt_path = os.path.join(os.path.dirname(__file__), "../prompts/main_prompt.txt")
+    with open(prompt_path, "r", encoding="utf-8") as file:
+        return file.read().strip()
+    
+def build_prompt(template, user_prompt):
+    """Combine the template with user input to create the final prompt."""
+    return f"{template}\n\n##User Input:\n{user_prompt}\n\n## Output\n"
+
 def parse_response_to_json(response_text):
     """Parse the API response string to valid JSON."""
     if response_text is None:
@@ -76,7 +86,14 @@ def save_response_and_metrics(response_json, metrics):
 if __name__ == "__main__":
     user_prompt = get_user_input()
     print("Proceeding with query...")
-    answer, total_tokens, prompt_tokens, completion_tokens, latency_ms = query_openai_api(user_prompt)
+    try:
+        template = load_prompt_template()
+        full_prompt = build_prompt(template, user_prompt)
+    except FileNotFoundError:
+        print("Warning: main_prompt.txt not found. Using raw user input.")
+        full_prompt = user_prompt
+
+    answer, total_tokens, prompt_tokens, completion_tokens, latency_ms = query_openai_api(full_prompt)
 
     # Parse response to JSON
     response_json = parse_response_to_json(answer)

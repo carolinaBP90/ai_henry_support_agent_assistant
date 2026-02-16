@@ -1,0 +1,19 @@
+{
+  "timestamp": 1771247985.3262,
+  "response": {
+    "answer": "Para resetear tu password, ve a la página de inicio de sesión y busca la opción 'Olvidé mi contraseña'. Sigue las instrucciones para recibir un enlace de recuperación por correo electrónico.",
+    "confidence": 0.95,
+    "actions": [
+      "Visitar la página de inicio de sesión",
+      "Seleccionar 'Olvidé mi contraseña'",
+      "Introducir tu correo electrónico",
+      "Seguir las instrucciones enviadas por correo"
+    ]
+  },
+  "metrics": {
+    "prompt_tokens": 45,
+    "completion_tokens": 103,
+    "total_tokens": 148,
+    "latency_ms": 5092.550992965698
+  }
+}
