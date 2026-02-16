@@ -1,0 +1,11 @@
+{
+  "timestamp": 1771249448.737155,
+  "response": {
+    "answer": "Para iniciar sesión, ve a la página de inicio y haz clic en 'Iniciar sesión', luego ingresa tu correo y contraseña.",
+    "confidence": 0.9,
+    "actions": [
+      "Dirigir al usuario a la página de inicio",
+      "Recordar al usuario que verifique sus credenciales"
+    ]
+  }
+}

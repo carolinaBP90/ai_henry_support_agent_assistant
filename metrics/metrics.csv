@@ -1,0 +1,2 @@
+timestamp,tokens_prompt,tokens_completion,total_tokens,latency_ms,estimated_cost_usd
+1771249448.733758,324,71,395,4453.819513320923,9.1e-05

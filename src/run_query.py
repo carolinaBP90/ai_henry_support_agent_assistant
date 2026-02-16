@@ -2,6 +2,7 @@ import datetime
 import os
 import json
 import time
+import csv
 import openai 
 from dotenv import load_dotenv
 
@@ -14,6 +15,19 @@ if not os.getenv("OPENAI_API_KEY"):
 
 # Define OpenAI client (lee OPENAI_API_KEY del entorno)
 client = openai.OpenAI()
+
+# Pricing for GPT-4o-mini model (per 1 million tokens)
+PRICING = {
+    "input": 0.15,
+    "output": 0.60
+}
+
+def calculate_estimated_cost(prompt_tokens, completion_tokens):
+    """Calculate estimated cost in USD based on token usage."""
+    input_cost = (prompt_tokens / 1_000_000) * PRICING["input"]
+    output_cost = (completion_tokens / 1_000_000) * PRICING["output"]
+    return round(input_cost + output_cost, 6)
+
 
 def load_prompt_template():
     """Load the main prompt template from disk."""
@@ -73,14 +87,40 @@ def save_response_and_metrics(response_json, metrics):
     
     output_data = {
         "timestamp": datetime.datetime.now().timestamp(),
-        "response": response_json,
-        "metrics": metrics
+        "response": response_json
     }
     
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
     
-    return output_file
+    # Save metrics to CSV
+    metrics_dir = os.path.join(os.path.dirname(__file__), '../metrics')
+    os.makedirs(metrics_dir, exist_ok=True)
+    
+    metrics_file = os.path.join(metrics_dir, 'metrics.csv')
+    
+    # Calculate estimated cost
+    estimated_cost = calculate_estimated_cost(metrics["prompt_tokens"], metrics["completion_tokens"])
+    
+    # Prepare metrics row
+    metrics_row = {
+        "timestamp": metrics["timestamp"],
+        "tokens_prompt": metrics["prompt_tokens"],
+        "tokens_completion": metrics["completion_tokens"],
+        "total_tokens": metrics["total_tokens"],
+        "latency_ms": metrics["latency_ms"],
+        "estimated_cost_usd": estimated_cost
+    }
+
+    # Write to CSV
+    file_exists = os.path.isfile(metrics_file)
+    with open(metrics_file, 'a', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=metrics_row.keys())
+        if not file_exists:
+            writer.writeheader()
+        writer.writerow(metrics_row)
+    
+    return output_file, metrics_file
 
 # main
 if __name__ == "__main__":
@@ -100,6 +140,7 @@ if __name__ == "__main__":
 
     # Prepare metrics
     metrics = {
+        "timestamp": datetime.datetime.now().timestamp(),
         "prompt_tokens": prompt_tokens,
         "completion_tokens": completion_tokens,
         "total_tokens": total_tokens,
