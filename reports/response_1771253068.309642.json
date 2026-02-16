@@ -1,0 +1,11 @@
+{
+  "timestamp": 1771253068.309669,
+  "response": {
+    "answer": "Para iniciar sesión, dirígete a la página de inicio y introduce tu nombre de usuario y contraseña en los campos correspondientes.",
+    "confidence": 0.9,
+    "actions": [
+      "Proporcionar enlace a la página de inicio",
+      "Verificar credenciales"
+    ]
+  }
+}
