@@ -1,0 +1,14 @@
+{
+  "timestamp": 1771212550.172432,
+  "response": {
+    "answer": "```json\n{\n  \"answer\": \"Para resetear tu contraseña, visita la página de inicio de sesión y haz clic en 'Olvidé mi contraseña'. Sigue las instrucciones enviadas a tu correo electrónico para restablecerla.\",\n  \"confidence\": 0.95,\n  \"actions\": [\n    \"Ir a la página de inicio de sesión.\",\n    \"Seleccionar 'Olvidé mi contraseña'.\",\n    \"Consultar el correo electrónico para el enlace de restablecimiento.\"\n  ]\n}\n```",
+    "confidence": 0.0,
+    "actions": []
+  },
+  "metrics": {
+    "prompt_tokens": 31,
+    "completion_tokens": 104,
+    "total_tokens": 135,
+    "latency_ms": 5406.944274902344
+  }
+}

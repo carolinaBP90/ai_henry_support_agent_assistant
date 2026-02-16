@@ -1,0 +1,18 @@
+{
+  "timestamp": 1771212764.816115,
+  "response": {
+    "answer": "Para resetear tu contraseña, generalmente debes ir a la página de inicio de sesión y buscar la opción '¿Olvidaste tu contraseña?'. Luego, sigue las instrucciones que se te proporcionen, que a menudo incluyen verificar tu identidad a través de tu correo electrónico o número de teléfono.",
+    "confidence": 0.95,
+    "actions": [
+      "Ir a la página de inicio de sesión",
+      "Hacer clic en '¿Olvidaste tu contraseña?'",
+      "Seguir las instrucciones para reiniciar la contraseña"
+    ]
+  },
+  "metrics": {
+    "prompt_tokens": 45,
+    "completion_tokens": 114,
+    "total_tokens": 159,
+    "latency_ms": 3930.2470684051514
+  }
+}

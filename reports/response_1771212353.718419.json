@@ -1,0 +1,14 @@
+{
+  "timestamp": 1771212353.718473,
+  "response": {
+    "answer": "Para resetear tu contraseña, normalmente puedes seguir estos pasos, aunque pueden variar según el servicio que estés utilizando:\n\n1. **Visita la página de inicio de sesión** del servicio en cuestión.\n2. Busca el enlace que dice **“¿Olvidaste tu contraseña?”** o **“Resetear contraseña”**.\n3. Haz clic en ese enlace.\n4. Se te pedirá que ingreses tu **correo electrónico** o **nombre de usuario** asociado a la cuenta.\n5. Revisa tu correo para un **mensaje con instrucciones** sobre cómo restablecer tu contraseña.\n6. Sigue el enlace en el correo y crea una **nueva contraseña**.\n\nSi tienes problemas, también puedes consultar la sección de ayuda o soporte del servicio. Si me indicas el servicio específico, puedo darte más detalles.",
+    "confidence": 0.0,
+    "actions": []
+  },
+  "metrics": {
+    "prompt_tokens": 14,
+    "completion_tokens": 166,
+    "total_tokens": 180,
+    "latency_ms": 5185.91046333313
+  }
+}

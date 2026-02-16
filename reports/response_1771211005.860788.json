@@ -1,0 +1,14 @@
+{
+  "timestamp": 1771211005.860854,
+  "response": {
+    "answer": "Para resetear tu contraseña, generalmente debes ir a la página de inicio de sesión y hacer clic en 'Olvidé mi contraseña'. Luego, sigue las instrucciones que te envían por correo electrónico o mensaje. Si necesitas ayuda específica, por favor indícame el servicio o plataforma que estás utilizando.",
+    "confidence": 0.95,
+    "actions": []
+  },
+  "metrics": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "latency_ms": 0
+  }
+}
